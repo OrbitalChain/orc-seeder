@@ -104,7 +104,7 @@ public:
 printf("1\n");
     if (ip.GetPort() != GetDefaultPort()) return false;
 printf("2\n");
-//    if (!(services & NODE_NETWORK)) return false;
+    if (!(services & NODE_NETWORK)) return false;
 printf("3\n");
     if (!ip.IsRoutable()) return false;
 printf("4\n");
@@ -114,19 +114,20 @@ printf("5\n");
 printf("blocks: %d \n", blocks);
 printf("GetRequireHeight(): %d \n", GetRequireHeight());
 
-    if (total <= 3 && success * 2 >= total) return true;
 printf("total: %d \n", total);
 printf("success: %d \n", success);
-    if (stat2H.reliability > 0.85 && stat2H.count > 2) return true;
+    if (total <= 3 && success * 2 >= total) return true;
 printf("8\n");
-    if (stat8H.reliability > 0.70 && stat8H.count > 4) return true;
+    if (stat2H.reliability > 0.85 && stat2H.count > 2) return true;
 printf("9\n");
-    if (stat1D.reliability > 0.55 && stat1D.count > 8) return true;
+    if (stat8H.reliability > 0.70 && stat8H.count > 4) return true;
 printf("10\n");
-    if (stat1W.reliability > 0.45 && stat1W.count > 16) return true;
+    if (stat1D.reliability > 0.55 && stat1D.count > 8) return true;
 printf("11\n");
-    if (stat1M.reliability > 0.35 && stat1M.count > 32) return true;
+    if (stat1W.reliability > 0.45 && stat1W.count > 16) return true;
 printf("12\n");
+    if (stat1M.reliability > 0.35 && stat1M.count > 32) return true;
+printf("fin\n");
     
     return false;
   }
